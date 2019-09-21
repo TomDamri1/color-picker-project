@@ -1,2 +1,3 @@
 # color-picker-project
-    # React Color Picker Project.
+
+## React Color Picker Project.
