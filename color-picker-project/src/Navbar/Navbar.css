@@ -1,0 +1,53 @@
+.Navbar{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 6vh;
+}
+.logo{
+    margin-right: 15px;
+    padding :0 13px;
+    background-color: #eceff1;
+    font-family: Roboto;
+    height: 100%;
+    display: flex;
+    align-items: center; 
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    font-weight: bolder;
+}
+
+.fa-palette{
+    font-size: 30px;
+    margin-right: 10px;
+}
+
+.slider{
+    width: 340px;
+    margin: 0 10px;
+    display: inline-block;
+}
+
+.rc-slider-track{
+    background-color: transparent;
+}
+
+.rc-slider-rail{
+    height: 8px;
+}
+
+.rc-slider-handle,
+.rc-slider-handle:active,
+.rc-slider-handle:focus,
+.rc-slider-handle:hover{
+    background-color: cadetblue;
+    outline: none;
+    border: 2px solid cadetblue;
+    box-shadow: none;
+    width: 13px;
+    height: 13px;
+    margin-top: -3px;
+}
