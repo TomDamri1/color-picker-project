@@ -28,7 +28,7 @@ export class Navbar extends Component {
         return (
             <header className="Navbar">
                 <div className="logo">
-                    <a href="/"><i class="fas fa-palette"></i>Color Picker</a>
+                    <a href="/"><i className="fas fa-palette"></i>Color Picker</a>
                 </div>
                 <div className='slider-container'>
                     <span>Level: {this.props.level}</span>
