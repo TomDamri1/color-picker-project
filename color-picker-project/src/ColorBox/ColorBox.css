@@ -81,7 +81,6 @@
     position: fixed;
     left: 0; 
     right: 0;
-    top : 0;
     bottom: 0;
     top: 0;
     display: flex;
@@ -102,6 +101,14 @@
     background-color: rgba(255, 255, 255, 0.3);
     width: 100%;
     text-transform: uppercase;
+    left: 0; 
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.my-copy-msg.my-show{
+  
 }
 
 .copy-msg p{

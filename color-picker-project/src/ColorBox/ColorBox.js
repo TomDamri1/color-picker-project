@@ -18,7 +18,7 @@ export class ColorBox extends Component {
         }, 1000)})
     
     }
-    /*
+    
     render() {
         const {name , background } = this.props
         return (
@@ -43,7 +43,11 @@ export class ColorBox extends Component {
             </CopyToClipboard>
         )
     }
-    */
+    
+   /*
+   //
+   //   copy response only on the box : 
+   //
    render(){
     const {name , background } = this.props;
     if (this.state.copied){
@@ -52,8 +56,8 @@ export class ColorBox extends Component {
         text={this.props.background}
         onCopy={this.changeCopyState}>
             <div className="ColorBox" style={{backgroundColor :background}}>
-                <div className={`box-content my-copy-msg ${this.state.copied && 'my-show'}`}>
-                    <h1>Copied!</h1>
+                <div className={`box-content ${this.state.copied && 'my-show'}`}>
+                    <h1 className="my-copy-msg">Copied!</h1>
                     <p>{this.props.background}</p>
                 </div>    
             </div>
@@ -76,7 +80,7 @@ export class ColorBox extends Component {
                </div>
            </CopyToClipboard>
        )
-   }
+   }*/
 }
 
 export default ColorBox
