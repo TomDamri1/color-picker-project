@@ -1,4 +1,4 @@
-export default [
+let seedColors = [
     {
       paletteName: "Material UI Colors",
       id: "material-ui-colors",
@@ -242,3 +242,12 @@ export default [
       ]
     }
   ];
+
+  function findPalette(id){
+    return seedColors.find(function(palette){
+      return palette.id===id
+    });
+  }
+
+  export {findPalette};
+  export default seedColors;
