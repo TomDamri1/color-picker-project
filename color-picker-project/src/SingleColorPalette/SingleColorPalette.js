@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ColorBox from '../ColorBox/ColorBox';
 import Navbar from '../Navbar/Navbar';
+import PaletteFotter from '../PaletteFooter/PaletteFotter';
 
 export class SingleColorPalette extends Component {
     constructor(props){
@@ -26,6 +27,7 @@ export class SingleColorPalette extends Component {
     }
     render() {
         const format = this.state.format;
+        const {paletteName , emoji} = this.props.palette;
         const colorBoxes= this._shades.map(color=>
             <ColorBox 
             key={color.name} 
@@ -37,6 +39,7 @@ export class SingleColorPalette extends Component {
             <div className='Palette'>
                 <Navbar dontShowSlider={true} handleChange={this.chagneFormt}/>
                 <div className='Palette-colors'>{colorBoxes}</div>   
+                <PaletteFotter paletteName={paletteName} emoji={emoji}/>
             </div>
         )
     }
