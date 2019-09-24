@@ -6,8 +6,10 @@ import Snackbar from '@material-ui/core/Snackbar';
 import IconButton from '@material-ui/core/IconButton';
 import CloseIcon from '@material-ui/icons/Close';
 import 'rc-slider/assets/index.css';
-import './Navbar.css';
 import { Link } from 'react-router-dom';
+import {withStyles} from '@material-ui/styles';
+import styles from '../Styles/NavbarStyles';
+
 export class Navbar extends Component {
     constructor(props){
         super(props);
@@ -26,15 +28,16 @@ export class Navbar extends Component {
         this.setState({open: false});
     }
     render() {
+        const {classes} = this.props
         return (
-            <header className="Navbar">
-                <div className="logo">
-                    <Link to="/"><i className="fas fa-palette"></i>Color Picker</Link>
+            <header className={classes.Navbar}>
+                <div className={classes.logo}>
+                    <Link to="/"><i className={`fas fa-palette ${classes.icon}`}></i>Color Picker</Link>
                 </div>
                 {!this.props.dontShowSlider &&
-                <div className='slider-container'>
+                <div>
                     <span>Level: {this.props.level}</span>
-                    <div className="slider">
+                    <div className={classes.slider}>
              
                         <Slider 
                         step={100}
@@ -76,4 +79,4 @@ export class Navbar extends Component {
     }
 }
 
-export default Navbar
+export default withStyles(styles)(Navbar);
