@@ -33,7 +33,7 @@ export class Palette extends Component {
             key={color.id}
             id={color.id}
             paletteId={this.props.palette.id}
-            showLink={true}/>
+            showingFullPalette={true}/>
         ))
         return (
             <div className="Palette">
