@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import ColorBox from '../ColorBox/ColorBox';
 import NavBar from '../Navbar/Navbar';
-import PaletteFotter from '../PaletteFooter/PaletteFotter';
+import PaletteFooter from '../PaletteFooter/PaletteFooter';
 import { withStyles } from '@material-ui/core';
 import styles from '../Styles/PaletteStyles';
 export class Palette extends Component {
@@ -42,7 +42,7 @@ export class Palette extends Component {
                 <div className={classes.colors}>
                     {colorBoxes}
                 </div>
-                <PaletteFotter paletteName={paletteName} emoji={emoji}/>
+                <PaletteFooter paletteName={paletteName} emoji={emoji}/>
             </div>
         )
     }

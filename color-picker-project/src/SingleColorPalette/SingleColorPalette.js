@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ColorBox from '../ColorBox/ColorBox';
 import Navbar from '../Navbar/Navbar';
 import {Link} from 'react-router-dom'
-import PaletteFotter from '../PaletteFooter/PaletteFotter';
+import PaletteFooter from '../PaletteFooter/PaletteFooter';
 import {withStyles} from '@material-ui/styles';
 import styles from '../Styles/SingleColorPaletteStyles';
 export class SingleColorPalette extends Component {
@@ -47,7 +47,7 @@ export class SingleColorPalette extends Component {
                         <Link to={`/palette/${id}`} className='back-button'>go back</Link>
                     </div>
                 </div>   
-                <PaletteFotter paletteName={paletteName} emoji={emoji}/>
+                <PaletteFooter paletteName={paletteName} emoji={emoji}/>
             </div>
         )
     }
