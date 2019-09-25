@@ -1,13 +1,15 @@
 import React, { Component } from 'react'
+import PersistentDrawerLeft from './Drawer/PersistentDrawerLeft'
+
 
 export class NewPaletteForm extends Component {
     render() {
         return (
             <div>
-                <h1>new NewPaletteForm</h1>
+                 <PersistentDrawerLeft/> 
             </div>
         )
     }
 }
 
-export default NewPaletteForm
+export default NewPaletteForm;
