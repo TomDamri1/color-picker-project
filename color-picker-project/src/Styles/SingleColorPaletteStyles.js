@@ -17,7 +17,6 @@ export default {
         cursor: "pointer",
         marginBottom: "-3.5px",
         backgroundColor : 'black',
-        position: 'relative',
         '& a':{
             color:'white' ,
             width : "100px",

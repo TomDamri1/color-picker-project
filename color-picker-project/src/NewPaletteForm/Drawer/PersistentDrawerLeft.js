@@ -15,7 +15,6 @@ import {ChromePicker} from 'react-color';
 import Button from '@material-ui/core/Button'
 
 const drawerWidth = 400;
-let colorFromColorPicker = '';
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
@@ -72,7 +71,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function PersistentDrawerLeft() {
+export default function PersistentDrawerLeft(props) {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -105,7 +104,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Create A Palette
           </Typography>
         </Toolbar>
       </AppBar>
@@ -132,8 +131,18 @@ export default function PersistentDrawerLeft() {
           <Button variant="contained" color="secondary">Clear Palette</Button>
           <Button variant="contained" color="primary">Random Color</Button>
         </div>
-        <ChromePicker onChangeComplete={(newColor)=> console.log(newColor)}/>
-        <Button variant="contained" color="primary">Add Color</Button>
+        <ChromePicker 
+        onChangeComplete={(newColor)=> {
+          props.changeCurrentColor(newColor.hex);
+        }}
+        color={props.currentColor}
+        />
+        <Button 
+        variant="contained" 
+        color="primary"
+        style={{backgroundColor : props.currentColor}}
+        onClick={props.addNewColor}
+        >Add Color</Button>
         
       </Drawer>
       <main
@@ -142,8 +151,11 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        
+        <ul>
+          {props.colors.map(color => <li style={{backgroundColor : color}}>{color}</li>)}  
+        </ul>
       </main>
+      
     </div>
   );
 }
