@@ -243,11 +243,5 @@ let seedColors = [
     }
   ];
 
-  function findPalette(id){
-    return seedColors.find(function(palette){
-      return palette.id===id
-    });
-  }
 
-  export {findPalette};
   export default seedColors;

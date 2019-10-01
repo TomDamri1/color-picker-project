@@ -2,7 +2,6 @@ import {Route , Switch} from 'react-router-dom';
 import React from 'react';
 import Palette from './Palette/Palette'
 import seedColors from './seedColors/seedColors';
-import {findPalette}from './seedColors/seedColors';
 import generatePalette from './seedColors/ColorScales';
 import PaletteList from './PaletteList/PaletteList';
 import SingleColorPalette from './SingleColorPalette/SingleColorPalette';
@@ -32,6 +31,7 @@ class App extends React.Component {
         exact path='/palette/new' 
         render={(routeProps)=>
            <NewPaletteForm 
+           palettes={this.state.palettes}
             savePalette={this.savePalette}
             {...routeProps}
             />
@@ -39,7 +39,7 @@ class App extends React.Component {
         />
       <Route 
       exact path='/' 
-      render={(routeProps)=> <PaletteList palettes={this.state.palettes} {...routeProps}/>}/>
+      render={(routeProps)=> <PaletteList palettes={this.state.palettes} {...routeProps} />}/>
       <Route 
       exact path='/palette/:id'
       render={routeProps => <Palette palette={generatePalette(this.findPalette(routeProps.match.params.id))}/>}
