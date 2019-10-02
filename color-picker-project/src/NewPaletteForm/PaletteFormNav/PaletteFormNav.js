@@ -9,8 +9,42 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import {ValidatorForm , TextValidator} from 'react-material-ui-form-validator';
-import { arrayMove } from 'react-sortable-hoc';
+import {withStyles} from '@material-ui/core/styles';
 
+
+const drawerWidth = 400;
+const styles = theme => ({
+    root:{
+        display: 'flex',
+    },
+    appBar: {
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.sharp,
+        duration: theme.transitions.duration.leavingScreen,
+      }),
+      flexDirection : 'row',
+        justifyContent : 'space-between',
+        height: '64px',
+    },
+    appBarShift: {
+      width: `calc(100% - ${drawerWidth}px)`,
+      marginLeft: drawerWidth,
+      transition: theme.transitions.create(['margin', 'width'], {
+        easing: theme.transitions.easing.easeOut,
+        duration: theme.transitions.duration.enteringScreen,
+      }),
+    },
+    menuButton: {
+      marginLeft: 12,
+      marginRight: 20,
+    },
+    hide: {
+      display: 'none',
+    },
+    navBtns:{
+        
+    }
+});
 export class PaletteFormNav extends React.Component {
     constructor(props){
         super(props);
@@ -33,7 +67,7 @@ export class PaletteFormNav extends React.Component {
         const {classes , open , handleSubmit , handleDrawerOpen} = this.props;
         const { newPaletteName } =this.state
         return (
-            <div>
+            <div className={classes.root}>
                 <CssBaseline />
                 <AppBar
                 color= 'default'
@@ -52,8 +86,11 @@ export class PaletteFormNav extends React.Component {
                     <MenuIcon />
                     </IconButton>
                     <Typography variant="h6" color="inherit" noWrap>
-                    New Color Palette
+                        Create A Palette
                     </Typography>
+                    
+                </Toolbar>
+                <div className={classes.navBtns}>
                     <ValidatorForm onSubmit={()=> handleSubmit(newPaletteName)}>
                     <TextValidator 
                         onChange={this.handleChange}
@@ -63,15 +100,15 @@ export class PaletteFormNav extends React.Component {
                         validators={['required','isPaletteNameUnique']}
                         errorMessages={['This field is required','This name is already taken']}/>
                     <Button variant='contained' color='primary' type='submit'>Save Palette</Button>
+                    </ValidatorForm>
                     <Link to='/'>
                         <Button variant='contained' color='secondary'>Go Back</Button>
                     </Link>
-                    </ValidatorForm>
-                </Toolbar>
+                    </div>
                 </AppBar>
             </div>
         )
     }
 }
 
-export default PaletteFormNav
+export default withStyles(styles, { withTheme: true })(PaletteFormNav);
