@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
 import {ValidatorForm , TextValidator} from 'react-material-ui-form-validator';
 import {withStyles} from '@material-ui/core/styles';
+import PaletteMetaForm from './PaletteMetaForm/PaletteMetaForm'
 
 
 const drawerWidth = 400;
@@ -52,23 +53,18 @@ export class PaletteFormNav extends React.Component {
             newPaletteName : '',
         }
     }
-    componentDidMount(){
-        ValidatorForm.addValidationRule('isPaletteNameUnique' , value=>
-      this.props.palettes.every(
-        ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
-        )
-    )
-    }
+    
     handleChange = (evt) =>{
         this.setState({[evt.target.name] : evt.target.value});
       }
     
     render() {
-        const {classes , open , handleSubmit , handleDrawerOpen} = this.props;
+        const {classes , open , handleSubmit , handleDrawerOpen , palettes} = this.props;
         const { newPaletteName } =this.state
         return (
             <div className={classes.root}>
                 <CssBaseline />
+                
                 <AppBar
                 color= 'default'
                 position="fixed"
@@ -91,16 +87,11 @@ export class PaletteFormNav extends React.Component {
                     
                 </Toolbar>
                 <div className={classes.navBtns}>
-                    <ValidatorForm onSubmit={()=> handleSubmit(newPaletteName)}>
-                    <TextValidator 
-                        onChange={this.handleChange}
-                        name='newPaletteName' 
-                        label='Palette Name' 
-                        value={this.state.newPaletteName}
-                        validators={['required','isPaletteNameUnique']}
-                        errorMessages={['This field is required','This name is already taken']}/>
-                    <Button variant='contained' color='primary' type='submit'>Save Palette</Button>
-                    </ValidatorForm>
+                    {/**/}
+                    <PaletteMetaForm
+                      handleSubmit={handleSubmit}
+                      palettes={palettes}
+                    />
                     <Link to='/'>
                         <Button variant='contained' color='secondary'>Go Back</Button>
                     </Link>
