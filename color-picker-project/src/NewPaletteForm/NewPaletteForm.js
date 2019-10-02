@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,6 +16,7 @@ import Button from '@material-ui/core/Button';
 import {ValidatorForm , TextValidator} from 'react-material-ui-form-validator';
 import DraggableColorList from './DraggableColorList/DraggableColorList';
 import { arrayMove } from 'react-sortable-hoc';
+import PaletteFormNav from './PaletteFormNav/PaletteFormNav';
 
 
 const drawerWidth = 400;
@@ -101,13 +103,12 @@ class NewPaletteForm extends React.Component {
     this.setState({currentColor : newColor})
   }
 
-  handleSubmit = () =>{
-    let newName = this.state.newPaletteName;
+  handleSubmit = (newPaletteName) =>{
     const newPalette = {
-      paletteName : newName,
+      paletteName : newPaletteName,
       colors : this.state.colors,
       emoji: '🤣',
-      id : newName.toLowerCase().replace(/ /g,'-'),
+      id : newPaletteName.toLowerCase().replace(/ /g,'-'),
 
     }
     this.props.savePalette(newPalette);
@@ -139,11 +140,7 @@ class NewPaletteForm extends React.Component {
         )
     )
 
-    ValidatorForm.addValidationRule('isPaletteNameUnique' , value=>
-      this.props.palettes.every(
-        ({paletteName}) => paletteName.toLowerCase() !== value.toLowerCase()
-        )
-    )
+    
   }
 
   removeColor = (colorName)=>{
@@ -171,44 +168,19 @@ class NewPaletteForm extends React.Component {
   }
 
   render() {
-    const { classes ,  } = this.props;
+    const { classes , palettes } = this.props;
     const { open } = this.state;
     const paletteIsFull = this.state.colors.length >= this.props.maxColors;
 
     return (
       <div className={classes.root}>
-        <CssBaseline />
-        <AppBar
-          color= 'default'
-          position="fixed"
-          className={classNames(classes.appBar, {
-            [classes.appBarShift]: open,
-          })}
-        >
-          <Toolbar disableGutters={!open}>
-            <IconButton
-              color="inherit"
-              aria-label="Open drawer"
-              onClick={this.handleDrawerOpen}
-              className={classNames(classes.menuButton, open && classes.hide)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography variant="h6" color="inherit" noWrap>
-              New Color Palette
-            </Typography>
-            <ValidatorForm onSubmit={this.handleSubmit}>
-              <TextValidator 
-                onChange={this.handleChange}
-                name='newPaletteName' 
-                label='Palette Name' 
-                value={this.state.newPaletteName}
-                validators={['required','isPaletteNameUnique']}
-                errorMessages={['This field is required','This name is already taken']}/>
-              <Button variant='contained' color='primary' type='submit'>Save Palette</Button>
-            </ValidatorForm>
-          </Toolbar>
-        </AppBar>
+        <PaletteFormNav 
+          open={open} 
+          classes={classes} 
+          palettes={palettes}
+          handleSubmit={this.handleSubmit}
+          handleDrawerOpen={this.handleDrawerOpen}
+        />
         <Drawer
           className={classes.drawer}
           variant="persistent"
