@@ -34,7 +34,7 @@ export class PaletteMetaForm extends Component {
     
       render() {
           const {newPaletteName } = this.state;
-          const {handleSubmit } = this.props;
+          const {handleSubmit} = this.props;
         return (
           <div>
             
@@ -43,33 +43,31 @@ export class PaletteMetaForm extends Component {
               onClose={this.handleClose}
               aria-labelledby="form-dialog-title"
             >
-              <DialogTitle id="form-dialog-title">Save your palette</DialogTitle>
-              <ValidatorForm onSubmit={()=> handleSubmit(newPaletteName)}>
-                <DialogContent>
-                <DialogContentText>
-                  Please enter a palette name. Make sure the name is unique.
-                </DialogContentText>
-                
-                    <TextValidator 
-                        onChange={this.handleChange}
-                        name='newPaletteName' 
-                        label='Palette Name' 
-                        fullWidth
-                        margin='normal'
-                        value={newPaletteName}
-                        validators={['required','isPaletteNameUnique']}
-                        errorMessages={['This field is required','This name is already taken']}/>
-                    
-              
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
-                  Cancel
-                </Button>
-                <Button variant='contained' color='primary' type='submit'>Save Palette</Button>
-                
-              </DialogActions>
-              </ValidatorForm>
+                <DialogTitle id="form-dialog-title">Save your palette</DialogTitle>
+                <ValidatorForm onSubmit={()=> handleSubmit(newPaletteName)}>
+                    <DialogContent>
+                        <DialogContentText>
+                        Please enter a palette name. Make sure the name is unique.
+                        </DialogContentText>
+                        
+                        <TextValidator 
+                            onChange={this.handleChange}
+                            name='newPaletteName' 
+                            label='Palette Name' 
+                            fullWidth
+                            margin='normal'
+                            value={newPaletteName}
+                            validators={['required','isPaletteNameUnique']}
+                            errorMessages={['This field is required','This name is already taken']}
+                        />              
+                    </DialogContent>
+                    <DialogActions>
+                        <Button onClick={this.handleClose} color="primary">
+                        Cancel
+                        </Button>
+                        <Button variant='contained' color='primary' type='submit'>Save Palette</Button>
+                    </DialogActions>
+                </ValidatorForm>
             </Dialog>
           </div>
         );
