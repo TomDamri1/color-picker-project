@@ -92,12 +92,12 @@ class NewPaletteForm extends React.Component {
   };
 
 
-  handleSubmit = (newPaletteName) =>{
+  handleSubmit = (Palette) =>{
     const newPalette = {
-      paletteName : newPaletteName,
+      paletteName : Palette.paletteName,
       colors : this.state.colors,
-      emoji: '🤣',
-      id : newPaletteName.toLowerCase().replace(/ /g,'-'),
+      emoji: Palette.emoji,
+      id : Palette.paletteName.toLowerCase().replace(/ /g,'-'),
 
     }
     this.props.savePalette(newPalette);
