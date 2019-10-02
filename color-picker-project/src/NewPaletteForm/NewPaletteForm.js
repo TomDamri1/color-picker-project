@@ -120,7 +120,10 @@ class NewPaletteForm extends React.Component {
       color : this.state.currentColor,
       name : this.state.newColorName
     };
-    this.setState({colors : [...this.state.colors , newColor]})
+    this.setState({
+      colors : [...this.state.colors , newColor],
+      newColorName : '',
+    })
   }
 
   handleChange = (evt) =>{
