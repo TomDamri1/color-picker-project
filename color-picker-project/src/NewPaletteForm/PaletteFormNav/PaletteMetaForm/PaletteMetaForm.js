@@ -26,6 +26,7 @@ export class PaletteMetaForm extends Component {
     
       handleClose = () => {
         this.setState({ open: false });
+        this.props.hideForm();
       };
       handleChange = (evt) =>{
         this.setState({[evt.target.name] : evt.target.value});
