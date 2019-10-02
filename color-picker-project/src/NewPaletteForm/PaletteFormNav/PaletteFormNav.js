@@ -26,6 +26,7 @@ const styles = theme => ({
       flexDirection : 'row',
         justifyContent : 'space-between',
         height: '64px',
+        alignItems:'center',
     },
     appBarShift: {
       width: `calc(100% - ${drawerWidth}px)`,
@@ -43,20 +44,33 @@ const styles = theme => ({
       display: 'none',
     },
     navBtns:{
-        
-    }
+        marginRight : '1rem',
+        '& a':{
+          textDecoration : 'none',
+        },
+
+    },
+    button:{
+      margin: '0 0.5rem',
+    },
+
+
 });
 export class PaletteFormNav extends React.Component {
     constructor(props){
         super(props);
         this.state ={
             newPaletteName : '',
+            formShowing : false,
         }
     }
     
     handleChange = (evt) =>{
         this.setState({[evt.target.name] : evt.target.value});
       }
+    showForm = () =>{
+      this.setState({formShowing : true})
+    }
     
     render() {
         const {classes , open , handleSubmit , handleDrawerOpen , palettes} = this.props;
@@ -87,16 +101,20 @@ export class PaletteFormNav extends React.Component {
                     
                 </Toolbar>
                 <div className={classes.navBtns}>
-                    {/**/}
-                    <PaletteMetaForm
-                      handleSubmit={handleSubmit}
-                      palettes={palettes}
-                    />
                     <Link to='/'>
-                        <Button variant='contained' color='secondary'>Go Back</Button>
+                        <Button className={classes.button} variant='contained' color='secondary'>Go Back</Button>
                     </Link>
+                    <Button className={classes.button} variant="contained" color="primary" onClick={this.showForm}>
+                      Save
+                    </Button>
                     </div>
                 </AppBar>
+                {this.state.formShowing &&(
+                <PaletteMetaForm
+                      handleSubmit={handleSubmit}
+                      palettes={palettes}
+                />
+                )}
             </div>
         )
     }
