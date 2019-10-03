@@ -8,54 +8,10 @@ import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import Button from '@material-ui/core/Button';
-import {ValidatorForm , TextValidator} from 'react-material-ui-form-validator';
 import {withStyles} from '@material-ui/core/styles';
-import PaletteMetaForm from './PaletteMetaForm/PaletteMetaForm'
+import PaletteMetaForm from './PaletteMetaForm/PaletteMetaForm';
+import styles from '../../Styles/PaletteFormNavStyles';
 
-
-const drawerWidth = 400;
-const styles = theme => ({
-    root:{
-        display: 'flex',
-    },
-    appBar: {
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.sharp,
-        duration: theme.transitions.duration.leavingScreen,
-      }),
-      flexDirection : 'row',
-      justifyContent : 'space-between',
-      height: '64px',
-      alignItems:'center',
-    },
-    appBarShift: {
-      width: `calc(100% - ${drawerWidth}px)`,
-      marginLeft: drawerWidth,
-      transition: theme.transitions.create(['margin', 'width'], {
-        easing: theme.transitions.easing.easeOut,
-        duration: theme.transitions.duration.enteringScreen,
-      }),
-    },
-    menuButton: {
-      marginLeft: 12,
-      marginRight: 20,
-    },
-    hide: {
-      display: 'none',
-    },
-    navBtns:{
-        marginRight : '1rem',
-        '& a':{
-          textDecoration : 'none',
-        },
-
-    },
-    button:{
-      margin: '0 0.5rem',
-    },
-
-
-});
 export class PaletteFormNav extends React.Component {
     constructor(props){
         super(props);
@@ -76,7 +32,6 @@ export class PaletteFormNav extends React.Component {
     }
     render() {
         const {classes , open , handleSubmit , handleDrawerOpen , palettes} = this.props;
-        const { newPaletteName } =this.state
         return (
             <div className={classes.root}>
                 <CssBaseline />

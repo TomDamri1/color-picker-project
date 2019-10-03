@@ -45,7 +45,6 @@ export class PaletteMetaForm extends Component {
     
       render() {
           const {newPaletteName } = this.state;
-          const {handleSubmit} = this.props;
         return (
           <div>
             <Dialog 
@@ -56,7 +55,7 @@ export class PaletteMetaForm extends Component {
                 </DialogTitle>
                 <Picker 
                     onSelect={this.savePalette}
-                    title=""
+                    title="Pick a Palette Emoji"
                 />
             </Dialog>
             <Dialog
