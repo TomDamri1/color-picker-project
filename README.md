@@ -1,6 +1,5 @@
 # React Color Picker Project.
 
-
 ##created with : 
     "@material-ui/core": "^4.4.3",
     "@material-ui/icons": "^4.4.3",
