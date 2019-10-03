@@ -48,7 +48,7 @@ export class Navbar extends Component {
                     </div>
                 </div>
                 }
-                <div className="select-container">
+                <div className={`select-container ${classes.selectContainer}`}>
                     <Select value={this.state.format} onChange={this.handleChange}>
                         <MenuItem value="hex">HEX - #ffffff</MenuItem>
                         <MenuItem value="rgb">RGB - rgb(255,255,255)</MenuItem>

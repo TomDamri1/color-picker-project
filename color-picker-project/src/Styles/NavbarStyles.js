@@ -49,4 +49,7 @@ export default {
         fontSize: '30px',
         marginRight: '10px',
     },
+    selectContainer:{
+        marginLeft:'auto',
+    },
 }
