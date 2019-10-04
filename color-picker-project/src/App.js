@@ -13,7 +13,7 @@ class App extends React.Component {
     super(props);
     let storedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
     let palettesToShow = () =>{
-      if (storedPalettes.length > 0) 
+      if (storedPalettes) 
         return storedPalettes;
       else return [...seedColors]
     }
