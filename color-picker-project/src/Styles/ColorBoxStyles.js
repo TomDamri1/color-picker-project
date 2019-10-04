@@ -17,7 +17,7 @@ export default{
         },
         [sizes.down('lg')]:{
             width: '25%',
-            height : props => (props.showingFullPalette ? "20%" : "20%"),
+            height : props => (props.showingFullPalette ? "20%" : "33.3333%"),
         },
         [sizes.down('md')]:{
             width: '50%',
@@ -116,6 +116,9 @@ export default{
             backgroundColor: 'rgba(255, 255, 255, 0.3)',
             width: '100%',
             textTransform: 'uppercase',
+            [sizes.down('xs')]: {
+                fontSize : '5rem'
+            },
         }
     },
     showCopyMessage:{
