@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import MiniPalette from '../MiniPalette/MiniPalette';
+import MiniPalette from './MiniPalette/MiniPalette';
 import {withStyles} from '@material-ui/styles';
 import {CSSTransition , TransitionGroup} from 'react-transition-group'
 import styles from '../Styles/PaletteListStyles';

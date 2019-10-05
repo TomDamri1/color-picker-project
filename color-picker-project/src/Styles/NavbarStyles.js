@@ -48,7 +48,7 @@ export default {
             marginLeft: 'auto',
             marginRight: '1rem',
         }, 
-        [sizes.down('md')]:{
+        [sizes.down('sm')]:{
             width : '150px'
         }
     },

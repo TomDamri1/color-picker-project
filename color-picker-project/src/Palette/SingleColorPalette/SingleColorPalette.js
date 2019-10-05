@@ -4,7 +4,7 @@ import Navbar from '../Navbar/Navbar';
 import {Link} from 'react-router-dom'
 import PaletteFooter from '../PaletteFooter/PaletteFooter';
 import {withStyles} from '@material-ui/styles';
-import styles from '../Styles/SingleColorPaletteStyles';
+import styles from '../../Styles/SingleColorPaletteStyles';
 export class SingleColorPalette extends Component {
     constructor(props){
         super(props);
