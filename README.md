@@ -13,7 +13,7 @@ In order to install and run the app locally, simply:
 
 - Clone the project
 - cd into the color-picker-project folder
-- Open your terminal and use the command:
+- Open your terminal and use the commands:
     ```bash
     npm install
     npm start
