@@ -1,16 +1,19 @@
 # React Color Picker Project.
 
 ## Watch the website app:
-click [here](https://5d9a04582900f9ad3d0d053b--tom-color-picker.netlify.com "Color Picker App")
+Click [here](https://5d9a04582900f9ad3d0d053b--tom-color-picker.netlify.com "Color Picker App")
 to watch the website app.
 No installation needed.
 
 ## Installation:
+   ### Dependencies:
+   - nodejs 
+   
 In order to install and run the app locally, simply:
 
-- clone the project
+- Clone the project
 - cd into the color-picker-project folder
-- open your terminal and use the command:
+- Open your terminal and use the command:
     ```bash
     npm install
     npm start
@@ -18,10 +21,10 @@ In order to install and run the app locally, simply:
     
 ## Fetures:
 The color picker, can be used in order to:
-- choose colors from premade color palettes
-- choose diffrent color shades
-- create your own color palettes
-- copy a color from color palette to your clipboard
+- Choose colors from premade color palettes
+- Choose diffrent color shades
+- Create your own color palettes
+- Copy a color from color palette to your clipboard
 
 ## Created with : 
     "@material-ui/core": "^4.4.3",
