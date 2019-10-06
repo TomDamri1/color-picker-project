@@ -22,8 +22,6 @@ class App extends Component {
     this.state = {
       palettes: palettesToShow() ,
     }
-
-    console.log(this.state.palettes)
   }
   findPalette = (id) => {
     return this.state.palettes.find(function(palette){

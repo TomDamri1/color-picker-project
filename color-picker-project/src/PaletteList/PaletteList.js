@@ -4,7 +4,6 @@ import {withStyles} from '@material-ui/styles';
 import {CSSTransition , TransitionGroup} from 'react-transition-group'
 import styles from '../Styles/PaletteListStyles';
 import {Link} from 'react-router-dom';
-import { palette } from '@material-ui/system';
 import Dialog from '@material-ui/core/Dialog';
 import ListItem from '@material-ui/core/ListItem'
 import List from '@material-ui/core/List'
@@ -15,8 +14,8 @@ import Avatar from '@material-ui/core/Avatar'
 import ListItemText from '@material-ui/core/ListItemText'
 import blue from '@material-ui/core/colors/blue'
 import red from '@material-ui/core/colors/red'
-
 import DialogTitle from '@material-ui/core/DialogTitle';
+
 
 class PaletteList extends Component {
     state={
@@ -33,8 +32,14 @@ class PaletteList extends Component {
         this.props.history.push(`/palette/${id}`)
     }
     deletePalette = () => {
-        this.props.deletePalette(this.state.deletingId);
-        this.setState({openDeleteDialog : false})
+        if(this.props.palettes.length === 1){
+            this.setState({openDeleteDialog : false})
+            alert("You can't delete all your palettes :(")
+        }
+        else{
+            this.props.deletePalette(this.state.deletingId);
+            this.setState({openDeleteDialog : false})
+        }
     }
     render() {
         const { classes } = this.props;
@@ -42,13 +47,13 @@ class PaletteList extends Component {
             <div className={classes.root}>
                 <div className={classes.container}>
                     <nav className={classes.nav}>
-                        <h1 className={classes.heading}><i class="fas fa-palette"></i> Color Picker</h1>
+                        <h1 className={classes.heading}><i className="fas fa-palette"></i> Color Picker</h1>
                         <Link to='/palette/new'>New Palette</Link>
                     </nav>
                     <TransitionGroup className={classes.palettes}>
                     {this.props.palettes.map( p =>
                         <CSSTransition
-                            key={palette.id}
+                            key={p.id}
                             classNames='fade'
                             timeout={500}
                         >

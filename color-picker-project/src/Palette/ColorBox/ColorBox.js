@@ -36,7 +36,7 @@ export class ColorBox extends Component {
                         ${this.state.copied && classes.showOverlay }
                     `}/>
                 <div className={`${classes.copyMessage} ${this.state.copied && classes.showCopyMessage }`}>
-                    <h1 className={isLightColor && 'dark-text'}>Copied!</h1>
+                    <h1 className={isLightColor ? 'dark-text' : undefined}>Copied!</h1>
                     <p className={classes.copyText}>{name} , {this.props.background} </p>
                 </div>
 
