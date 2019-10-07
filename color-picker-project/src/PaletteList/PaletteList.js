@@ -17,6 +17,7 @@ import red from '@material-ui/core/colors/red'
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 
+
 class PaletteList extends Component {
     state={
         openDeleteDialog : false,
@@ -50,6 +51,7 @@ class PaletteList extends Component {
                         <h1 className={classes.heading}><i className="fas fa-palette"></i> Color Picker</h1>
                         <Link to='/palette/new'>New Palette</Link>
                     </nav>
+                    
                     <TransitionGroup className={classes.palettes}>
                     {this.props.palettes.map( p =>
                         <CSSTransition
