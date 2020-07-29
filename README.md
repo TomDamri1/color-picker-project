@@ -1,4 +1,4 @@
-# React Color Picker Project.
+# React Color Picker Project (made with udemy course).
 
 ## Watch the website app:
 Click [here](https://5d9b58a98b5c35017863231b--tom-color-picker.netlify.com/ "Color Picker App")
